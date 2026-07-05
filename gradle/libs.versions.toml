@@ -11,6 +11,8 @@ kotlinxCoroutines = "1.9.0"      # остаётся только для gateway/
 mockk = "1.13.13"
 testcontainers = "1.20.4"
 micrometerTracing = "1.4.0"
+lombok = "1.18.30"
+lombokPlugin = "9.5.0"
 
 [libraries]
 postgresql-jdbc = { module = "org.postgresql:postgresql", version.ref = "postgresqlJdbc" }
@@ -22,9 +24,11 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
 testcontainers-kafka = { module = "org.testcontainers:kafka", version.ref = "testcontainers" }
 micrometer-tracing-bridge-otel = { module = "io.micrometer:micrometer-tracing-bridge-otel", version.ref = "micrometerTracing" }
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
+lombok = { id = "io.freefair.lombok", version.ref = "lombokPlugin" }
