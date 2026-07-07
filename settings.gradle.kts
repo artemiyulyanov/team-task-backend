@@ -29,3 +29,4 @@ include(
 //    "services:notification-service",
 //    "services:user-service",
 )
+include("services:task-service")

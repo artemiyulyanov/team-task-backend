@@ -1,0 +1,40 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+        - id: task-service
+          uri: lb://task-service
+          predicates:
+            - Path=/api/tasks/**
+          filters:
+            - StripPrefix=1
+            - name: CircuitBreaker
+              args:
+                name: taskServiceCB
+                fallbackUri: forward:/fallback/tasks
+
+jwt:
+  secret: ${JWT_SECRET}
+
+internal:
+  auth:
+    secret: ${INTERNAL_AUTH_SECRET}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, gateway
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

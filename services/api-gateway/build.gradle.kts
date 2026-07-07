@@ -23,6 +23,10 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation(libs.kotlinx.coroutines.reactor)
 
+    implementation(libs.jjwt.api)
+    runtimeOnly(libs.jjwt.impl)
+    runtimeOnly(libs.jjwt.jackson)
+
     implementation(project(":libs:jwt"))
     implementation(project(":libs:common-dto"))
 
